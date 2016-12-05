@@ -180,6 +180,7 @@ def _add_to_revision(obj, using, model_db, explicit):
     if version_key in versions and not explicit:
         return
     # Get the version data.
+    obj.refresh_from_db()
     version = Version(
         content_type=content_type,
         object_id=object_id,
